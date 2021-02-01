@@ -76,9 +76,6 @@ const fg = {
   h: 112,
   x: 0,
   y: cvs.height - 112,
-
-  dx: 2,
-
   draw: function () {
     ctx.drawImage(
       sprite,
@@ -102,11 +99,6 @@ const fg = {
       this.w,
       this.h
     );
-  },
-  update: function () {
-    if (state.current == state.game) {
-      this.x = (this.x - this.dx) % (this.w / 2);
-    }
   },
 };
 
@@ -135,7 +127,6 @@ const bird = {
 
     ctx.save();
     ctx.translate(this.x, this.y);
-    ctx.rotate(this.rotation);
 
     ctx.drawImage(
       sprite,
@@ -164,7 +155,6 @@ const bird = {
 
     if (state.current == state.getReady) {
       this.y = 150; // Reset position of the bird after game over
-      this.rotation = 0 * DEGREE;
     } else {
       this.speed += this.gravity;
       this.y += this.speed;
@@ -174,13 +164,6 @@ const bird = {
         if (state.current == state.game) {
           state.current = state.over;
         }
-      }
-      // If the speed is greater than the jump means the bird is falling down
-      if (this.speed >= this.jump) {
-        this.rotation = 90 * DEGREE;
-        this.frame = 1;
-      } else {
-        this.rotation = -25 * DEGREE;
       }
     }
   },
@@ -253,7 +236,6 @@ function draw() {
 // Update
 function update() {
   bird.update();
-  fg.update();
 }
 
 // Loop

@@ -253,7 +253,6 @@ function draw() {
 // Update
 function update() {
   bird.update();
-  fg.update();
 }
 
 // Loop

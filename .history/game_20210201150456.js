@@ -5,7 +5,6 @@ const ctx = cvs.getContext("2d");
 
 // Game vars and consts
 let frames = 0;
-const DEGREE = Math.PI / 180;
 
 // Load sprite image
 const sprite = new Image();
@@ -76,9 +75,6 @@ const fg = {
   h: 112,
   x: 0,
   y: cvs.height - 112,
-
-  dx: 2,
-
   draw: function () {
     ctx.drawImage(
       sprite,
@@ -103,11 +99,6 @@ const fg = {
       this.h
     );
   },
-  update: function () {
-    if (state.current == state.game) {
-      this.x = (this.x - this.dx) % (this.w / 2);
-    }
-  },
 };
 
 // Bird
@@ -128,14 +119,9 @@ const bird = {
   gravity: 0.25,
   jump: 4.6,
   speed: 0,
-  rotation: 0,
 
   draw: function () {
     let bird = this.animation[this.frame];
-
-    ctx.save();
-    ctx.translate(this.x, this.y);
-    ctx.rotate(this.rotation);
 
     ctx.drawImage(
       sprite,
@@ -143,12 +129,11 @@ const bird = {
       bird.sY,
       this.w,
       this.h,
-      -this.w / 2,
-      -this.h / 2,
+      this.x - this.w / 2,
+      this.y - this.h / 2,
       this.w,
       this.h
     );
-    ctx.restore();
   },
   flap: function () {
     this.speed = -this.jump;
@@ -162,9 +147,8 @@ const bird = {
     // Frame goes from 0 to 4, then again to 0
     this.frame = this.frame % this.animation.length;
 
-    if (state.current == state.getReady) {
+    if (state.current === state.getReady) {
       this.y = 150; // Reset position of the bird after game over
-      this.rotation = 0 * DEGREE;
     } else {
       this.speed += this.gravity;
       this.y += this.speed;
@@ -174,13 +158,6 @@ const bird = {
         if (state.current == state.game) {
           state.current = state.over;
         }
-      }
-      // If the speed is greater than the jump means the bird is falling down
-      if (this.speed >= this.jump) {
-        this.rotation = 90 * DEGREE;
-        this.frame = 1;
-      } else {
-        this.rotation = -25 * DEGREE;
       }
     }
   },
@@ -253,7 +230,6 @@ function draw() {
 // Update
 function update() {
   bird.update();
-  fg.update();
 }
 
 // Loop

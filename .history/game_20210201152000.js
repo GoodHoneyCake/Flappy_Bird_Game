@@ -78,7 +78,6 @@ const fg = {
   y: cvs.height - 112,
 
   dx: 2,
-
   draw: function () {
     ctx.drawImage(
       sprite,
@@ -105,7 +104,7 @@ const fg = {
   },
   update: function () {
     if (state.current == state.game) {
-      this.x = (this.x - this.dx) % (this.w / 2);
+      this.x = this.x - this.dx;
     }
   },
 };
@@ -253,7 +252,6 @@ function draw() {
 // Update
 function update() {
   bird.update();
-  fg.update();
 }
 
 // Loop
