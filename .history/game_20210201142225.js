@@ -10,28 +10,8 @@ let frames = 0;
 const sprite = new Image();
 sprite.src = "img/sprite.png";
 
-// Game state
-const state = {
-  current: 0,
-  getReady: 0,
-  game: 1,
-  over: 2,
-};
-
 // Control the game
-cvs.addEventListener("click", function (evt) {
-  switch (state.current) {
-    case state.getReady:
-      state.current = state.game;
-      break;
-    case state.game:
-      bird.flap();
-      break;
-    case state.over:
-      state.current = state.getReady;
-      break;
-  }
-});
+document.addEventListener("click", () => {});
 
 // Background
 const bg = {
@@ -41,7 +21,7 @@ const bg = {
   h: 226,
   x: 0,
   y: cvs.height - 226,
-  draw: function () {
+  draw: () => {
     ctx.drawImage(
       sprite,
       this.sX,
@@ -131,7 +111,6 @@ const bird = {
       this.h
     );
   },
-  flap: function () {},
 };
 
 //Get ready message
@@ -144,19 +123,17 @@ const getReady = {
   y: 80,
 
   draw: function () {
-    if (state.current == state.getReady) {
-      ctx.drawImage(
-        sprite,
-        this.sX,
-        this.sY,
-        this.w,
-        this.h,
-        this.x,
-        this.y,
-        this.w,
-        this.h
-      );
-    }
+    ctx.drawImage(
+      sprite,
+      this.sX,
+      this.sY,
+      this.w,
+      this.h,
+      this.x,
+      this.y,
+      this.w,
+      this.h
+    );
   },
 };
 
@@ -170,19 +147,17 @@ const gameOver = {
   y: 90,
 
   draw: function () {
-    if (state.current == state.over) {
-      ctx.drawImage(
-        sprite,
-        this.sX,
-        this.sY,
-        this.w,
-        this.h,
-        this.x,
-        this.y,
-        this.w,
-        this.h
-      );
-    }
+    ctx.drawImage(
+      sprite,
+      this.sX,
+      this.sY,
+      this.w,
+      this.h,
+      this.x,
+      this.y,
+      this.w,
+      this.h
+    );
   },
 };
 

@@ -19,7 +19,7 @@ const state = {
 };
 
 // Control the game
-cvs.addEventListener("click", function (evt) {
+document.addEventListener("click", function (evt) {
   switch (state.current) {
     case state.getReady:
       state.current = state.game;
@@ -144,7 +144,7 @@ const getReady = {
   y: 80,
 
   draw: function () {
-    if (state.current == state.getReady) {
+    if (state.current == state.getReady)
       ctx.drawImage(
         sprite,
         this.sX,
@@ -156,7 +156,6 @@ const getReady = {
         this.w,
         this.h
       );
-    }
   },
 };
 
@@ -170,19 +169,17 @@ const gameOver = {
   y: 90,
 
   draw: function () {
-    if (state.current == state.over) {
-      ctx.drawImage(
-        sprite,
-        this.sX,
-        this.sY,
-        this.w,
-        this.h,
-        this.x,
-        this.y,
-        this.w,
-        this.h
-      );
-    }
+    ctx.drawImage(
+      sprite,
+      this.sX,
+      this.sY,
+      this.w,
+      this.h,
+      this.x,
+      this.y,
+      this.w,
+      this.h
+    );
   },
 };
 

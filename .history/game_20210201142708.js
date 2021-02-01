@@ -19,7 +19,7 @@ const state = {
 };
 
 // Control the game
-cvs.addEventListener("click", function (evt) {
+document.addEventListener("click", function (evt) {
   switch (state.current) {
     case state.getReady:
       state.current = state.game;
