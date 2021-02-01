@@ -305,11 +305,6 @@ const pipes = {
       let p = this.position[i];
 
       p.x -= this.dx;
-
-      // if the pipes go beyond canvas, we delete them from  the array
-      if (p.x + this.w <= 0) {
-        this.position.shift();
-      }
     }
   },
 };

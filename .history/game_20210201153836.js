@@ -271,7 +271,7 @@ const pipes = {
         this.top.sY,
         this.w,
         this.h,
-        p.x,
+        this.x,
         topYPos,
         this.w,
         this.h
@@ -284,32 +284,11 @@ const pipes = {
         this.bottom.sY,
         this.w,
         this.h,
-        p.x,
+        this.x,
         bottomYPos,
         this.w,
         this.h
       );
-    }
-  },
-
-  update: function () {
-    if (state.current !== state.game) return;
-
-    if (frames % 100 == 0) {
-      this.position.push({
-        x: cvs.width,
-        y: this.maxYPos * (Math.random() + 1),
-      });
-    }
-    for (let i = 0; i < this.position.length; i++) {
-      let p = this.position[i];
-
-      p.x -= this.dx;
-
-      // if the pipes go beyond canvas, we delete them from  the array
-      if (p.x + this.w <= 0) {
-        this.position.shift();
-      }
     }
   },
 };
@@ -320,7 +299,6 @@ function draw() {
   ctx.fillRect(0, 0, cvs.width, cvs.height);
 
   bg.draw();
-  pipes.draw();
   fg.draw();
   bird.draw();
   getReady.draw();
@@ -331,7 +309,6 @@ function draw() {
 function update() {
   bird.update();
   fg.update();
-  pipes.update();
 }
 
 // Loop
