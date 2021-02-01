@@ -306,7 +306,8 @@ const pipes = {
     for (let i = 0; i < this.position.length; i++) {
       let p = this.position[i];
 
-      let bottomPipeYPos = p.y + this.h + this.gap;
+      p.x -= this.dx;
+      let bottomPipeYPos = p.x + this.h + this.gap;
 
       // Collision detection
       // Top pipe
@@ -328,10 +329,6 @@ const pipes = {
       ) {
         state.current = state.over;
       }
-
-      // Move the pipes to the left
-      p.x -= this.dx;
-
       if (p.x + this.w <= 0) {
         // if the pipes go beyond canvas, we delete them from  the array
         this.position.shift();
