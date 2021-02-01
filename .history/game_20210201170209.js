@@ -201,7 +201,7 @@ const bird = {
   flap: function () {
     if (this.y >= 0) {
       // Avoid jumping if the bird goes above the canvas.
-      this.speed = -this.jump;
+      this.speed -= this.jump;
     }
   },
 
@@ -308,7 +308,7 @@ const pipes = {
   },
   w: 53,
   h: 400,
-  gap: 105,
+  gap: 85,
   maxYPos: -150,
   dx: 2,
 
