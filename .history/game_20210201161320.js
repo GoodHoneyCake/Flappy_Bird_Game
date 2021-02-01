@@ -335,10 +335,6 @@ const pipes = {
       if (p.x + this.w <= 0) {
         // if the pipes go beyond canvas, we delete them from  the array
         this.position.shift();
-        score.value += 1;
-
-        score.best = Math.max(score.value, score.best);
-        localStorage.setItem("best", score.best);
       }
     }
   },
@@ -363,8 +359,8 @@ const score = {
       ctx.fillText(this.value, 255, 186);
       ctx.strokeText(this.value, 255, 186);
       // Best vlue
-      ctx.fillText(this.best, 255, 228);
-      ctx.strokeText(this.best, 255, 228);
+      ctx.fillText(this.value, 255, 50);
+      ctx.strokeText(this.value, 255, 50);
     }
   },
 };
@@ -380,7 +376,6 @@ function draw() {
   bird.draw();
   getReady.draw();
   gameOver.draw();
-  score.draw();
 }
 
 // Update

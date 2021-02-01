@@ -337,8 +337,7 @@ const pipes = {
         this.position.shift();
         score.value += 1;
 
-        score.best = Math.max(score.value, score.best);
-        localStorage.setItem("best", score.best);
+        score.best = Math.max(score.value, score.bes);
       }
     }
   },
@@ -363,8 +362,8 @@ const score = {
       ctx.fillText(this.value, 255, 186);
       ctx.strokeText(this.value, 255, 186);
       // Best vlue
-      ctx.fillText(this.best, 255, 228);
-      ctx.strokeText(this.best, 255, 228);
+      ctx.fillText(this.value, 255, 228);
+      ctx.strokeText(this.value, 255, 228);
     }
   },
 };

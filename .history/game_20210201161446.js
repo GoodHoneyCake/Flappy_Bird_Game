@@ -363,8 +363,8 @@ const score = {
       ctx.fillText(this.value, 255, 186);
       ctx.strokeText(this.value, 255, 186);
       // Best vlue
-      ctx.fillText(this.best, 255, 228);
-      ctx.strokeText(this.best, 255, 228);
+      ctx.fillText(this.value, 255, 228);
+      ctx.strokeText(this.value, 255, 228);
     }
   },
 };
