@@ -397,9 +397,6 @@ const score = {
       ctx.strokeText(this.best, 255, 228);
     }
   },
-  reset: function () {
-    this.value = 0;
-  },
 };
 
 // Draw

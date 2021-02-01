@@ -369,9 +369,6 @@ const pipes = {
       }
     }
   },
-  reset: function () {
-    this.position = [];
-  },
 };
 
 // Score
@@ -396,9 +393,6 @@ const score = {
       ctx.fillText(this.best, 255, 228);
       ctx.strokeText(this.best, 255, 228);
     }
-  },
-  reset: function () {
-    this.value = 0;
   },
 };
 

@@ -48,10 +48,6 @@ cvs.addEventListener("click", function (evt) {
         clickY >= startBtn.y &&
         clickY <= startBtn.y + startBtn.h
       ) {
-        pipes.reset();
-        bird.speedReset();
-        score.reset();
-        state.current = state.getReady;
         state.current = state.getReady;
       }
       break;
@@ -210,9 +206,6 @@ const bird = {
       }
     }
   },
-  speedReset: function () {
-    this.speed = 0;
-  },
 };
 
 //Get ready message
@@ -369,9 +362,6 @@ const pipes = {
       }
     }
   },
-  reset: function () {
-    this.position = [];
-  },
 };
 
 // Score
@@ -396,9 +386,6 @@ const score = {
       ctx.fillText(this.best, 255, 228);
       ctx.strokeText(this.best, 255, 228);
     }
-  },
-  reset: function () {
-    this.value = 0;
   },
 };
 
