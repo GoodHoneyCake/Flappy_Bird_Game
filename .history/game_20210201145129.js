@@ -148,17 +148,9 @@ const bird = {
     this.frame = this.frame % this.animation.length;
 
     if (state.current == state.getReady) {
-      this.y = 150; // Reset position of the bird after game over
     } else {
       this.speed += this.gravity;
       this.y += this.speed;
-
-      if (this.y + this.h / 2 >= cvs.height - fg.h) {
-        this.y = cvs.height - fg.h - this.h / 2;
-        if (state.current == state.game) {
-          state.current = state.over;
-        }
-      }
     }
   },
 };
