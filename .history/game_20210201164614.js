@@ -201,7 +201,7 @@ const bird = {
   flap: function () {
     if (this.y >= 0) {
       // Avoid jumping if the bird goes above the canvas.
-      this.speed = -this.jump;
+      this.speed -= this.jump;
     }
   },
 
@@ -435,14 +435,14 @@ const score = {
 const medal = {
   sX: 359,
   sY: 157,
-  w: 45,
-  h: 45,
   x: 72,
   y: 175,
+  w: 45,
+  h: 45,
 
   draw: function () {
-    if (state.current == state.over && score.value >= 10) {
-      ctx.drawImage(
+    if (state.current == state.over && score.value <= 10) {
+      context.drawImage(
         sprite,
         this.sX,
         this.sY,
@@ -454,8 +454,8 @@ const medal = {
         this.h
       );
     }
-    if (state.current == state.over && score.value >= 20) {
-      ctx.drawImage(
+    if (state.current == state.over && score.value <= 20) {
+      context.drawImage(
         sprite,
         this.sX,
         this.sY - 46,
@@ -467,8 +467,8 @@ const medal = {
         this.h
       );
     }
-    if (state.current == state.over && score.value >= 30) {
-      ctx.drawImage(
+    if (state.current == state.over && score.value <= 30) {
+      context.drawImage(
         sprite,
         this.sX - 48,
         this.sY,
@@ -480,8 +480,8 @@ const medal = {
         this.h
       );
     }
-    if (state.current == state.over && score.value >= 40) {
-      ctx.drawImage(
+    if (state.current == state.over && score.value <= 40) {
+      context.drawImage(
         sprite,
         this.sX - 48,
         this.sY - 46,
