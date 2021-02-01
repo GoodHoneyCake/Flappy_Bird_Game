@@ -208,9 +208,7 @@ function draw() {
 }
 
 // Update
-function update() {
-  bird.update();
-}
+function update() {}
 
 // Loop
 function loop() {
