@@ -48,11 +48,9 @@ cvs.addEventListener("click", function (evt) {
   switch (state.current) {
     case state.getReady:
       state.current = state.game;
-      SWOOSHING.play();
       break;
     case state.game:
       bird.flap();
-      FLAP.play();
       break;
     case state.over:
       let rect = cvs.getBoundingClientRect();
@@ -217,7 +215,6 @@ const bird = {
         this.y = cvs.height - fg.h - this.h / 2;
         if (state.current == state.game) {
           state.current = state.over;
-          DIE.play();
         }
       }
       // If the speed is greater than the jump means the bird is falling down
@@ -363,7 +360,6 @@ const pipes = {
         bird.y - bird.radius < p.y + this.h
       ) {
         state.current = state.over;
-        HIT.play();
       }
 
       // Bottom pipe
@@ -374,7 +370,6 @@ const pipes = {
         bird.y - bird.radius < bottomPipeYPos + this.h
       ) {
         state.current = state.over;
-        HIT.play();
       }
 
       // Move the pipes to the left
@@ -384,7 +379,6 @@ const pipes = {
         // if the pipes go beyond canvas, we delete them from  the array
         this.position.shift();
         score.value += 1;
-        SCORE_S.play();
 
         score.best = Math.max(score.value, score.best);
         localStorage.setItem("best", score.best);

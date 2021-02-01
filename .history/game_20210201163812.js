@@ -384,7 +384,6 @@ const pipes = {
         // if the pipes go beyond canvas, we delete them from  the array
         this.position.shift();
         score.value += 1;
-        SCORE_S.play();
 
         score.best = Math.max(score.value, score.best);
         localStorage.setItem("best", score.best);

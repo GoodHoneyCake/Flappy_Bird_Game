@@ -363,7 +363,6 @@ const pipes = {
         bird.y - bird.radius < p.y + this.h
       ) {
         state.current = state.over;
-        HIT.play();
       }
 
       // Bottom pipe
@@ -374,7 +373,6 @@ const pipes = {
         bird.y - bird.radius < bottomPipeYPos + this.h
       ) {
         state.current = state.over;
-        HIT.play();
       }
 
       // Move the pipes to the left
@@ -384,7 +382,6 @@ const pipes = {
         // if the pipes go beyond canvas, we delete them from  the array
         this.position.shift();
         score.value += 1;
-        SCORE_S.play();
 
         score.best = Math.max(score.value, score.best);
         localStorage.setItem("best", score.best);
